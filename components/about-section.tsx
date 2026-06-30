@@ -34,7 +34,7 @@ export function AboutSection() {
                 alt="Rubén Uribe, Podocosmiatra"
                 width={882}
                 height={406}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-top"
               />
             </div>
           </div>
