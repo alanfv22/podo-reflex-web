@@ -1,0 +1,142 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-fraunces), 'Fraunces Fallback', serif;
+  --font-sans: var(--font-outfit), 'Outfit Fallback', sans-serif;
+  --font-serif: var(--font-fraunces), 'Fraunces Fallback', serif;
+  --font-brand: var(--font-playfair), 'Playfair Display Fallback', serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+
+  --color-sage: var(--sage);
+  --color-sage-dark: var(--sage-dark);
+  --color-sage-light: var(--sage-light);
+  --color-terracota: var(--terracota);
+  --color-terracota-light: var(--terracota-light);
+  --color-gold: var(--terracota);
+  --color-cream: var(--cream);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 0.85rem;
+
+  /* Brand palette — azul profundo, teal sobrio y dorado metálico (tema oscuro) */
+  --sage: #1a8a8c; /* teal profundo y desaturado: CTAs, acentos, bordes */
+  --sage-dark: #23a6a8; /* teal hover, apenas más claro (nunca brillante) */
+  --sage-light: #14335c; /* azul medio: superficies suaves y bandas */
+  --terracota: #d4af6a; /* dorado metálico cálido: SOLO branding, con moderación */
+  --terracota-light: #e2c488; /* dorado claro: detalles sobre fondo oscuro */
+  --cream: #15315a; /* azul medio: superficies elevadas (nav, badges) */
+
+  --background: #0a1f3c; /* navy dominante */
+  --foreground: #eaf2f8; /* blanco roto */
+  --card: #15315a; /* azul medio */
+  --card-foreground: #eaf2f8;
+  --popover: #15315a;
+  --popover-foreground: #eaf2f8;
+  --primary: #1a8a8c; /* teal profundo */
+  --primary-foreground: #eaf2f8; /* blanco roto sobre teal profundo */
+  --secondary: #15315a;
+  --secondary-foreground: #eaf2f8;
+  --muted: #122a4d;
+  --muted-foreground: #a7bbd0; /* gris azulado claro */
+  --accent: #d4af6a; /* dorado metálico (branding) */
+  --accent-foreground: #06182e;
+  --destructive: oklch(0.62 0.21 25);
+  --border: #1f3a5f;
+  --input: #1f3a5f;
+  --ring: #1a8a8c;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .mesh-sage {
+    background-color: var(--background);
+    background-image: radial-gradient(
+        at 16% 10%,
+        rgba(26, 138, 140, 0.18) 0px,
+        transparent 55%
+      ),
+      radial-gradient(at 88% 6%, rgba(212, 175, 106, 0.1) 0px, transparent 50%),
+      radial-gradient(at 78% 92%, rgba(21, 49, 90, 0.95) 0px, transparent 60%),
+      radial-gradient(
+        at 30% 80%,
+        rgba(26, 138, 140, 0.1) 0px,
+        transparent 55%
+      );
+  }
+  .mesh-dark {
+    background-color: var(--background);
+    background-image: radial-gradient(
+        at 20% 0%,
+        rgba(26, 138, 140, 0.12) 0px,
+        transparent 50%
+      ),
+      radial-gradient(at 85% 100%, rgba(21, 49, 90, 0.9) 0px, transparent 55%);
+  }
+  .btn-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+  .btn-shimmer:hover::after {
+    left: 130%;
+  }
+}
