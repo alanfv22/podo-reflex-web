@@ -57,8 +57,8 @@ function FeaturedService({ service }: { service: Service }) {
           </div>
 
           <div className="flex flex-col p-6 md:p-9">
-            <div className="flex flex-wrap items-start gap-x-4 gap-y-3">
-              <div className="flex min-w-0 flex-1 items-center gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+              <div className="flex items-center gap-3">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sage/15 text-sage">
                   <ServiceIcon name={service.iconName} className="h-6 w-6" />
                 </span>
@@ -66,7 +66,7 @@ function FeaturedService({ service }: { service: Service }) {
                   {service.name}
                 </h3>
               </div>
-              <div className="shrink-0 text-right">
+              <div className="shrink-0 sm:text-right">
                 <p className="font-heading text-2xl font-semibold text-sage">
                   ${service.price.toLocaleString('es-AR')}
                 </p>

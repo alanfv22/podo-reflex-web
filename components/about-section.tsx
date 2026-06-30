@@ -30,8 +30,8 @@ export function AboutSection() {
             </div>
             <div className="col-span-2 mt-10 overflow-hidden rounded-[1.75rem] shadow-xl ring-1 ring-sage/10">
               <Image
-                src="/images/ruben-podoreflex.jpg"
-                alt="Rubén Uribe junto al cartel PODOREFLEX - Atención integral del pie"
+                src="/images/ruben.jpeg"
+                alt="Rubén Uribe, Podocosmiatra"
                 width={882}
                 height={406}
                 className="h-full w-full object-cover"
